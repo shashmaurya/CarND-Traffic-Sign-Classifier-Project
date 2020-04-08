@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 [image4]: ./writeup_images/final_accuracy.png "Final Model Accuracy"
 [image5]: ./writeup_images/accuracy_1.png "Other Iteration 1"
 [image6]: ./writeup_images/accuracy_2.png "Other Iteration 2"
-[image7]: ./writeup_images/accuracy_5.jpg "Other Iteration 3"
+[image7]: ./writeup_images/accuracy_5.png "Other Iteration 3"
 [image8]: ./writeup_images/DOE.jpg "New Images"
 [image9]: ./writeup_images/new_images.jpg "New Images"
 
@@ -191,11 +191,17 @@ Many iterations of tuning were needed to achieve the final solution. Changes to 
 
 ![alt text][image4]
 
+
+
 __Some Earlier Iterations__
+Shown below are some earlier iteration that did not meet the benchmark. This is to illustrate the steps taken.
+
 ![alt text][image5]
 
 
+
 ![alt text][image6]
+
 
 
 ![alt text][image7]
@@ -211,6 +217,9 @@ __Parameters Tuned__
 * EPOCH - convergence
 * Batch Size - Smaller batch slower, but more number of updates within training
 * Learning Rate: Higher improves faster but erratic at higher epochs when close to convergence. Smaller rate leads to slower convergence, but stable and better results at higher EPOCHS
+
+To better describe how I did the tuning using the DOE approach, here is a list showing some trials I did.
+
 
 ![alt text][image8]
 
@@ -235,12 +244,10 @@ To test the validity of the model, we now try it on some images obtained from th
 Below is a picture of the set of 10 images used for section. They were randomly picked up from differnt sourcs on an image search.
 
 
-Here are five German traffic signs that I found on the web:
-
 ![alt text][image9]
 
 
-My expectation is that the model may not be able to perform at the same level on these images. Some of the reasons are 
+My expectation was that the model may not be able to perform at the same level on these images. Some of the reasons are 
     * The original images were different sizes, and resized to 32x32 whiich may have altered original proportions
     * Some images were taken at an angle. Although the training data may have some like that, these are the difficult ones to identify
     * Images like the 1st and 6th one have a lot of background features in them which may increase complexity
@@ -324,8 +331,8 @@ TopKV2(values=array([[  7.83934951e-01,   2.05991596e-01,   1.00617483e-02],
 ```
 
 
-Since the model shows very high confidence in the predictions, only the first 2 or 3 are significant at most. The later values are very close to 0.
-Listing the top 3 probabilities for the images
+Since the model shows very high confidence in the predictions, only the first 2 or 3 are significant at most. The later values are very close to 0, so I am not listing them here.
+Listing the top 3 probabilities for the images 1-5 below
 
 __Image 1__
 
@@ -341,6 +348,7 @@ Prediction: `[ 9, 12, 35]`
 | 0.78         			| No passing   							| 
 | 0.21 					| Priority road 						|
 | 0.0.1					| Ahead only							|
+
 
 
 
@@ -362,6 +370,7 @@ Prediction: `[13, 34, 35]`
 
 
 
+
 __Image 3__
 
 | Image			        |     Prediction	        			| 
@@ -379,6 +388,7 @@ Prediction: `[17,  9, 41]`
 
 
 
+
 __Image 4__
 
 | Probability         	|     Prediction	        			| 
@@ -393,6 +403,7 @@ Prediction: `[ 9, 41, 17]`
 | 1.0         			| No passing   							| 
 | 9.61e-18 				| End of no passing 					|
 | 1.34e-20				| No entry								|
+
 
 
 
